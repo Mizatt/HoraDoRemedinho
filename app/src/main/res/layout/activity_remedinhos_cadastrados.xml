@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".RemedinhosCadastrados"
+        android:background="@color/colorPrimary">
+
+    <ImageView
+            android:id="@+id/headerremedinhos"
+            android:layout_width="match_parent"
+            android:layout_height="131.25dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/headerremedinhos"
+            android:layout_alignParentStart="true" android:layout_alignParentTop="true"/>
+
+    <Button
+        android:id="@+id/botaoacessoconfiguraçoes"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="55dp"
+        android:background="@drawable/menuhamburguer" />
+
+
+    <ListView
+            android:id="@+id/listadeRemedinhos"
+            android:layout_width="match_parent"
+            android:layout_height="1075dp"
+            android:layout_alignTop="@+id/headerremedinhos"
+            android:layout_marginTop="132dp">
+
+    </ListView>
+
+    <Button
+        android:id="@+id/botãoCadastrarNovoRemedinho"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:background="@drawable/addremedinho" android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+             android:layout_marginEnd="16dp" android:layout_marginBottom="16dp"/>
+
+</RelativeLayout>
