@@ -12,7 +12,7 @@ public class sucessoCadastroRemedinho extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_sucesso_cadastro_remedinho);
 
-        int finishTime = 2000;
+        int finishTime = 3000;
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {

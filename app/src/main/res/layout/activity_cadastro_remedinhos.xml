@@ -32,12 +32,13 @@
         android:layout_width="335dp"
         android:layout_height="55dp"
         android:layout_alignParentTop="true"
-        android:cursorVisible="false"
-        android:layout_marginTop="249dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
         android:background="@drawable/edittext"
+        android:cursorVisible="false"
         android:hint="   Insira o nome do remédio"
-        android:textStyle="italic"
-        android:layout_centerHorizontal="true"/>
+        android:inputType="text"
+        android:textStyle="italic" />
 
     <Button
         android:id="@+id/botaoSalvarRemedinho"
@@ -47,6 +48,17 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="115dp"
         android:background="@drawable/salvar" />
+
+    <TimePicker
+        android:id="@+id/horarioLembrete"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:layout_marginTop="330dp"
+        android:amPmTextColor="@color/colorPrimaryDark"
+        android:numbersBackgroundColor="@color/colorPrimary"
+        android:numbersSelectorColor="@color/colorPrimaryDark"
+        android:textSize="100sp"
+        android:timePickerMode="spinner" />
 
     <Button
         android:id="@+id/botaoCancelar"
@@ -61,10 +73,10 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
         android:layout_alignParentStart="true"
-        android:layout_centerInParent="true"
-        android:layout_marginStart="39dp"
+        android:layout_marginStart="38dp"
         android:text="Horário para lembrete:"
-        android:textSize="20sp" />
+        android:textSize="22sp" />
 
 </RelativeLayout>

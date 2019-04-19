@@ -26,7 +26,7 @@
         android:layout_marginTop="268dp"
         android:background="@drawable/edittext"
         android:cursorVisible="false"
-        android:hint="   Insira o seu usuário."
+        android:hint="   Insira o seu usuário"
         android:textStyle="italic" />
 
     <EditText
@@ -37,7 +37,7 @@
         android:layout_centerHorizontal="true"
         android:background="@drawable/edittext"
         android:cursorVisible="false"
-        android:hint="   Insira a sua senha."
+        android:hint="   Insira a sua senha"
         android:textStyle="italic" />
 
     <Button

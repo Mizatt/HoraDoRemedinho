@@ -12,7 +12,7 @@ public class sucessoCadastroUsuario extends AppCompatActivity {
         super.onCreate (savedInstanceState);
         setContentView (R.layout.activity_sucesso_cadastro_usuario);
 
-        int finishTime = 2000; //10 secs
+        int finishTime = 3000;
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
