@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".CadastroDeRemedios"
+        android:orientation="vertical"
+        android:background="@color/colorPrimary">
+
+
+    <ImageView
+            android:id="@+id/headercadastroremedinho"
+            android:layout_width="match_parent"
+            android:layout_height="131.25dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/headercadastro"
+            android:layout_centerHorizontal="true"
+            android:layout_alignParentStart="true" android:layout_alignParentTop="true"/>
+
+    <Button
+        android:id="@+id/botaoVoltar"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:background="@drawable/botaovoltar" android:layout_alignParentTop="true"
+        android:layout_marginTop="55dp"
+        android:layout_alignParentStart="true" android:layout_marginStart="22dp"/>
+
+    <EditText
+        android:id="@+id/nomeDoRemedio"
+        android:layout_width="335dp"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="200dp"
+        android:background="@drawable/edittext"
+        android:cursorVisible="false"
+        android:hint=" Insira o nome do remédio"
+        android:inputType="text"
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/botaoSalvarRemedinho"
+        android:layout_width="335dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="115dp"
+        android:background="@drawable/salvar" />
+
+    <TimePicker
+        android:id="@+id/horarioLembrete"
+        android:layout_width="match_parent"
+        android:layout_height="153dp"
+        android:layout_marginTop="330dp"
+        android:amPmTextColor="@color/colorPrimaryDark"
+        android:numbersBackgroundColor="@color/colorPrimary"
+        android:numbersSelectorColor="@color/colorPrimaryDark"
+        android:textSize="100sp"
+        android:timePickerMode="spinner" />
+
+    <Button
+        android:id="@+id/botaoCancelar"
+        android:layout_width="335dp"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/cancelar"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="300dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="38dp"
+        android:text="Horário para lembrete:"
+        android:textSize="22sp" />
+
+</RelativeLayout>

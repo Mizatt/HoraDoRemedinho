@@ -1,28 +1,24 @@
 package projetodiego.unimep.com.br.projetodiego;
 
 import android.content.Intent;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-import java.util.Timer;
-import java.util.TimerTask;
-
 public class CadastroRemedinhos extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_cadastro_remedinhos);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cadastro_remedinhos);
 
         Button salvarCadastroRemedinho = (Button) findViewById(R.id.botaoSalvarRemedinho);
         salvarCadastroRemedinho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent callSalvaRemedinho = new Intent(CadastroRemedinhos.this,  sucessoCadastroRemedinho.class);
+                Intent callSalvaRemedinho = new Intent(CadastroRemedinhos.this, SucessoCadastroRemedinho.class);
                 startActivity(callSalvaRemedinho);
                 finish();
             }

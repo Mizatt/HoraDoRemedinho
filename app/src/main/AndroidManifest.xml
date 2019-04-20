@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".TelaDeConfigurcao"></activity>
+        <activity android:name=".TelaConfiguracao"></activity>
         <activity android:name=".TelaPrincipal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,10 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".RemedinhosCadastrados" />
-        <activity android:name=".CadastroRemedinhos" />
-        <activity android:name=".sucessoCadastroRemedinho" />
-        <activity android:name=".sucessoCadastroUsuario" />
+        <activity android:name=".RemediosCadastrados" />
+        <activity android:name=".CadastroDeRemedios" />
+        <activity android:name=".SucessoCadastroRemedinho" />
+        <activity android:name=".SucessoCadastroUsuario" />
         <activity android:name=".PopErro" />
         <activity android:name=".Login" />
         <activity android:name=".CadastroUsuario" />

@@ -26,7 +26,7 @@ public class Login extends AppCompatActivity {
         entrarTelaPrincipal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent callTelaPrincipal = new Intent(Login.this, RemedinhosCadastrados.class);
+                Intent callTelaPrincipal = new Intent(Login.this, RemediosCadastrados.class);
                 startActivity(callTelaPrincipal);
             }
         });

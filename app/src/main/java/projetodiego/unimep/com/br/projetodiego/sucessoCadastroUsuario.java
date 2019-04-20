@@ -5,21 +5,21 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class sucessoCadastroUsuario extends AppCompatActivity {
+public class SucessoCadastroUsuario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_sucesso_cadastro_usuario);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_sucesso_cadastro_usuario);
 
         int finishTime = 3000;
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                sucessoCadastroUsuario.this.finish();
-                Intent callLoginAposSucesso = new Intent(sucessoCadastroUsuario.this,  Login.class);
+                SucessoCadastroUsuario.this.finish();
+                Intent callLoginAposSucesso = new Intent(SucessoCadastroUsuario.this, Login.class);
                 startActivity(callLoginAposSucesso);
             }
-        }, finishTime );
+        }, finishTime);
     }
 }

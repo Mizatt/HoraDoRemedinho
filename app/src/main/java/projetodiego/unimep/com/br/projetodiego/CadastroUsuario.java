@@ -10,8 +10,8 @@ public class CadastroUsuario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate (savedInstanceState);
-        setContentView (R.layout.activity_cadastro_usuario);
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_cadastro_usuario);
 
         Button voltaActivity = (Button) findViewById(R.id.botaoVoltar);
         voltaActivity.setOnClickListener(new View.OnClickListener() {
@@ -26,7 +26,7 @@ public class CadastroUsuario extends AppCompatActivity {
         salvarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent callSalvarUsuario = new Intent(CadastroUsuario.this, sucessoCadastroUsuario.class);
+                Intent callSalvarUsuario = new Intent(CadastroUsuario.this, SucessoCadastroUsuario.class);
                 startActivity(callSalvarUsuario);
                 finish();
             }

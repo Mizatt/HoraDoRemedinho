@@ -27,49 +27,49 @@
 
     <EditText
         android:id="@+id/NomeUsuario"
+        android:layout_centerHorizontal="true"
         android:layout_width="335dp"
         android:layout_height="48dp"
-        android:cursorVisible="false"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="206dp"
+        android:layout_marginTop="233dp"
         android:background="@drawable/edittext"
+        android:cursorVisible="false"
         android:hint="   Insira o seu nome:"
         android:textStyle="italic" />
 
     <EditText
         android:id="@+id/EmailUsuario"
+        android:layout_centerHorizontal="true"
         android:layout_width="335dp"
         android:layout_height="48dp"
-        android:cursorVisible="false"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="278dp"
+        android:layout_marginTop="300dp"
         android:background="@drawable/edittext"
+        android:cursorVisible="false"
         android:hint="   Insira o seu email:"
         android:textStyle="italic" />
 
     <EditText
         android:id="@+id/PrimeiraSenha"
+        android:layout_centerHorizontal="true"
         android:layout_width="335dp"
         android:layout_height="48dp"
-        android:cursorVisible="false"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="261dp"
+        android:layout_marginBottom="297dp"
         android:background="@drawable/edittext"
+        android:cursorVisible="false"
         android:hint="   Insira sua senha:"
         android:textStyle="italic" />
 
     <EditText
         android:id="@+id/SenhaUsuario"
+        android:layout_centerHorizontal="true"
         android:layout_width="335dp"
-        android:cursorVisible="false"
         android:layout_height="48dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="190dp"
+        android:layout_marginBottom="228dp"
         android:background="@drawable/edittext"
+        android:cursorVisible="false"
         android:hint="   Confirme sua senha"
         android:textStyle="italic" />
 
