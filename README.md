@@ -1,4 +1,3 @@
-# Hora do Remedinho
 
 ![](https://i.imgur.com/ktA8aH3.png)
 
