@@ -6,6 +6,13 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:navigationBarColor">@color/colorPrimaryDark</item>
+        <item name="android:statusBarColor">@color/colorExtra</item>
+    </style>
+
+    <style name="DialogStyle" parent="@android:style/Theme.Dialog">
+    <!-- changing these background stuff works fine -->
+    <item name="android:alertDialogStyle">@android:color/black</item>
     </style>
 
 </resources>

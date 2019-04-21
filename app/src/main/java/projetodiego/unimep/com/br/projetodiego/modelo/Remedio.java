@@ -22,7 +22,7 @@ public class Remedio implements Serializable {
         this.nomeDoRemedio = nomeDoRemedio;
     }
 
-//Nessa área ele retorna os dados sobre os remédios cadastrados.
+//Nessa área ele retorna os dados sobre os remédios cadastrados. TEM QUE DEIXAR MAIS BIURI
     @Override
     public String toString() {
         return this.id + ": " + this.nomeDoRemedio;
