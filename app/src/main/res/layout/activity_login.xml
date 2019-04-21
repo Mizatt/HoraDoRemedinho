@@ -15,7 +15,8 @@
             android:layout_height="131.25dp"
             android:scaleType="centerCrop"
             android:src="@drawable/bemvindo"
-            android:layout_alignParentStart="true" android:layout_alignParentTop="true"/>
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"/>
 
     <EditText
         style="@style/Widget.AppCompat.EditText"
@@ -26,7 +27,7 @@
         android:layout_centerVertical="true"
         android:layout_marginTop="290dp"
         android:background="@drawable/edittext"
-        android:cursorVisible="false"
+        android:paddingLeft="10dp"
         android:hint="   Insira o seu usuário"
         android:textStyle="italic" />
 
@@ -37,7 +38,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="302dp"
         android:background="@drawable/edittext"
-        android:cursorVisible="false"
+        android:paddingLeft="10dp"
         android:hint="   Insira a sua senha"
         android:textStyle="italic" />
 

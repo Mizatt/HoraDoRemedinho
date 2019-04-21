@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import java.util.List;
@@ -63,8 +64,11 @@ public class RemediosCadastrados extends AppCompatActivity {
         DAO.close();
         ArrayAdapter<Remedio> array_adapter = new ArrayAdapter<Remedio>(this, android.R.layout.simple_list_item_1, lista_de_remedios);
         lista_remedios.setAdapter(array_adapter);
+        if (lista_de_remedios.size() >= 1) {
+            ImageView nenhumRemedioCadastrado = (ImageView) findViewById(R.id.nenhumremediocadastrado);
+            nenhumRemedioCadastrado.setVisibility(View.GONE);
+        }
     }
-
 
     @Override
     protected void onResume() {
@@ -83,6 +87,8 @@ public class RemediosCadastrados extends AppCompatActivity {
                 RemedinhoDao DAO = new RemedinhoDao(RemediosCadastrados.this);
                 DAO.deletarRemedios(Remedio);
                 DAO.close();
+                Intent confirmarExclusao = new Intent(RemediosCadastrados.this,ExclusaoDeRegistro.class);
+                startActivity(confirmarExclusao);
                 onResume();
                 return false;
             }

@@ -43,7 +43,17 @@ public class CadastroDeRemedios extends AppCompatActivity {
                 startActivity(sucessoCadastro);
             }
         });
-    }
+
+
+    Button cancelarCadastroDeRemedio = (Button) findViewById(R.id.botaoCancelar);
+        cancelarCadastroDeRemedio.setOnClickListener(new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Intent cancelarCadastro = new Intent(CadastroDeRemedios.this, CancelamentoCadastroRemedio.class);
+            startActivity(cancelarCadastro);
+        }
+    });
+}
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
