@@ -28,59 +28,63 @@
     <EditText
         android:id="@+id/NomeUsuario"
         android:layout_centerHorizontal="true"
-        android:paddingLeft="10dp"
         android:layout_width="335dp"
         android:layout_height="48dp"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="233dp"
+        android:layout_marginTop="229dp"
         android:background="@drawable/edittext"
-        android:hint="   Insira o seu nome:"
+        android:cursorVisible="false"
+        android:hint="Insira o seu nome:"
+        android:paddingLeft="10dp"
         android:textStyle="italic" />
 
     <EditText
         android:id="@+id/EmailUsuario"
-        android:layout_centerHorizontal="true"
-        android:paddingLeft="10dp"
         android:layout_width="335dp"
+        android:layout_centerHorizontal="true"
         android:layout_height="48dp"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="300dp"
+        android:layout_below="@+id/NomeUsuario"
+        android:layout_marginTop="25dp"
         android:background="@drawable/edittext"
-        android:hint="   Insira o seu email:"
+        android:cursorVisible="false"
+        android:hint="Insira o seu email:"
+        android:paddingStart="10dp"
         android:textStyle="italic" />
 
     <EditText
         android:id="@+id/PrimeiraSenha"
         android:layout_centerHorizontal="true"
-        android:paddingLeft="10dp"
         android:layout_width="335dp"
         android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="297dp"
+        android:layout_below="@+id/EmailUsuario"
+        android:layout_marginTop="26dp"
         android:background="@drawable/edittext"
-        android:hint="   Insira sua senha:"
+        android:cursorVisible="false"
+        android:hint="Insira sua senha:"
+        android:paddingLeft="10dp"
         android:textStyle="italic" />
 
     <EditText
-        android:id="@+id/SenhaUsuario"
-        android:layout_centerHorizontal="true"
-        android:paddingLeft="10dp"
+        android:id="@+id/confirmaSenha"
         android:layout_width="335dp"
+        android:layout_centerHorizontal="true"
         android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="228dp"
+        android:layout_below="@+id/PrimeiraSenha"
+        android:layout_marginTop="25dp"
         android:background="@drawable/edittext"
-        android:hint="   Confirme sua senha"
+        android:cursorVisible="false"
+        android:hint="Confirme sua senha:"
+        android:paddingLeft="10dp"
         android:textStyle="italic" />
 
     <Button
         android:id="@+id/botaoSalvarCadastro"
         android:layout_width="335dp"
         android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="51dp"
-        android:background="@drawable/salvar"
-        android:layout_centerHorizontal="true"/>
+        android:layout_below="@+id/confirmaSenha"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="132dp"
+        android:background="@drawable/salvar" />
 
 
 </RelativeLayout>

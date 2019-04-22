@@ -14,7 +14,7 @@ public class ControleUsuarios {
     public ControleUsuarios(CadastroUsuario activity) {
         NomeUsuario = (EditText) activity.findViewById(R.id.NomeUsuario);
         EmailUsuario = (EditText) activity.findViewById(R.id.EmailUsuario);
-        SenhaUsuario = (EditText) activity.findViewById(R.id.SenhaUsuario);
+        SenhaUsuario = (EditText) activity.findViewById(R.id.confirmaSenha);
         var_usuario = new Usuario();
     }
 

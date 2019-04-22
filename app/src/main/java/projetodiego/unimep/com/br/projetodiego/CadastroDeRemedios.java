@@ -49,6 +49,7 @@ public class CadastroDeRemedios extends AppCompatActivity {
         cancelarCadastroDeRemedio.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
+            finish();
             Intent cancelarCadastro = new Intent(CadastroDeRemedios.this, CancelamentoCadastroRemedio.class);
             startActivity(cancelarCadastro);
         }
