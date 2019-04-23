@@ -18,7 +18,7 @@ public class CadastroRemedinhos extends AppCompatActivity {
         salvarCadastroRemedinho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent callSalvaRemedinho = new Intent(CadastroRemedinhos.this, SucessoCadastroRemedinho.class);
+                Intent callSalvaRemedinho = new Intent(CadastroRemedinhos.this, sucessoCadastroRemedinho.class);
                 startActivity(callSalvaRemedinho);
                 finish();
             }

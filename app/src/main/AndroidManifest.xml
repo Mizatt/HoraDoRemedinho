@@ -10,7 +10,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="Hora do Remedinho"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
@@ -27,8 +27,8 @@
         </activity>
         <activity android:name=".RemediosCadastrados" />
         <activity android:name=".CadastroDeRemedios" />
-        <activity android:name=".SucessoCadastroRemedinho" />
-        <activity android:name=".SucessoCadastroUsuario" />
+        <activity android:name=".sucessoCadastroRemedinho" />
+        <activity android:name=".sucessoCadastroUsuario" />
         <activity android:name=".PopErro" />
         <activity android:name=".Login" />
         <activity android:name=".CadastroUsuario" />

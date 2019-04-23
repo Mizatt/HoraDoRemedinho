@@ -26,7 +26,7 @@ public class CadastroUsuario extends AppCompatActivity {
         salvarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent callSalvarUsuario = new Intent(CadastroUsuario.this, SucessoCadastroUsuario.class);
+                Intent callSalvarUsuario = new Intent(CadastroUsuario.this, sucessoCadastroUsuario.class);
                 startActivity(callSalvarUsuario);
                 finish();
             }

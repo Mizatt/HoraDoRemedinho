@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class SucessoCadastroRemedinho extends AppCompatActivity {
+public class sucessoCadastroRemedinho extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -16,8 +16,8 @@ public class SucessoCadastroRemedinho extends AppCompatActivity {
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             public void run() {
-                SucessoCadastroRemedinho.this.finish();
-                Intent callRemedinhosCadastradosAposSucesso = new Intent(SucessoCadastroRemedinho.this, RemediosCadastrados.class);
+                sucessoCadastroRemedinho.this.finish();
+                Intent callRemedinhosCadastradosAposSucesso = new Intent(sucessoCadastroRemedinho.this, RemediosCadastrados.class);
                 startActivity(callRemedinhosCadastradosAposSucesso);
             }
         }, finishTime);

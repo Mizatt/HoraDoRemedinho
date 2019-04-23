@@ -39,7 +39,7 @@ public class CadastroDeRemedios extends AppCompatActivity {
                     dao.inserirNovoRemedio(Remedio);
                 }
                 dao.close();
-                Intent sucessoCadastro = new Intent(CadastroDeRemedios.this, SucessoCadastroRemedinho.class);
+                Intent sucessoCadastro = new Intent(CadastroDeRemedios.this, sucessoCadastroRemedinho.class);
                 startActivity(sucessoCadastro);
             }
         });
@@ -68,7 +68,7 @@ public class CadastroDeRemedios extends AppCompatActivity {
                     dao.inserirNovoRemedio(remedio);
                 }
                 dao.close();
-                Intent sucessoCadastro = new Intent(CadastroDeRemedios.this, SucessoCadastroRemedinho.class);
+                Intent sucessoCadastro = new Intent(CadastroDeRemedios.this, sucessoCadastroRemedinho.class);
                 startActivity(sucessoCadastro);
                 finish();
                 break;
