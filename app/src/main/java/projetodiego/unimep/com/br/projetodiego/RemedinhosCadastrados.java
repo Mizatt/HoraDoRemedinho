@@ -19,7 +19,7 @@ public class RemedinhosCadastrados extends AppCompatActivity {
         adicionarNovoRemedinho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent chamaFormularioCadastrodeRemedinhos = new Intent(RemedinhosCadastrados.this, CadastroRemedinhos.class);
+                Intent chamaFormularioCadastrodeRemedinhos = new Intent(RemedinhosCadastrados.this, CadastroDeRemedios.class);
                 startActivity(chamaFormularioCadastrodeRemedinhos);
             }
         });

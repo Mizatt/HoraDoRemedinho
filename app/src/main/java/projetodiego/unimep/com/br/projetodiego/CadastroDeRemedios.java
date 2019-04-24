@@ -39,6 +39,7 @@ public class CadastroDeRemedios extends AppCompatActivity {
                     dao.inserirNovoRemedio(Remedio);
                 }
                 dao.close();
+                finish();
                 Intent sucessoCadastro = new Intent(CadastroDeRemedios.this, sucessoCadastroRemedinho.class);
                 startActivity(sucessoCadastro);
             }

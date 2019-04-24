@@ -13,21 +13,21 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button entrarTelaCriarConta = (Button) findViewById(R.id.botaoCriarConta);
-        entrarTelaCriarConta.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent callTelaCriarConta = new Intent(Login.this, CadastroUsuario.class);
-                startActivity(callTelaCriarConta);
-            }
-        });
-
         Button entrarTelaPrincipal = (Button) findViewById(R.id.botaoEntrarLogin);
         entrarTelaPrincipal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent callTelaPrincipal = new Intent(Login.this, RemediosCadastrados.class);
                 startActivity(callTelaPrincipal);
+            }
+        });
+
+        Button telaCriarConta = (Button) findViewById(R.id.botaoCriarConta);
+        telaCriarConta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent callTelaCriarConta = new Intent(Login.this, CadastroUsuario .class);
+                startActivity(callTelaCriarConta);
             }
         });
 

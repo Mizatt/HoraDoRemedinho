@@ -18,7 +18,7 @@
     <Button
             android:id="@+id/entrarInicial"
             android:layout_width="335dp" android:layout_height="50dp"
-            android:background="@drawable/entrar"
+            android:background="@drawable/botaoentrar"
             android:layout_centerHorizontal="true" android:layout_alignParentBottom="true"
-            android:layout_marginBottom="32dp"/>
+            android:layout_marginBottom="30dp"/>
 </RelativeLayout>

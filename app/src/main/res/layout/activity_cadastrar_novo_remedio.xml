@@ -13,7 +13,7 @@
     <ImageView
             android:id="@+id/headercadastroremedinho"
             android:layout_width="match_parent"
-            android:layout_height="131.25dp"
+            android:layout_height="60dp"
             android:scaleType="centerCrop"
             android:src="@drawable/headercadastro"
             android:layout_centerHorizontal="true"
@@ -21,19 +21,21 @@
 
     <Button
         android:id="@+id/botaoVoltar"
-        android:layout_width="24dp"
-        android:layout_height="24dp"
-        android:background="@drawable/botaovoltar" android:layout_alignParentTop="true"
-        android:layout_marginTop="55dp"
-        android:layout_alignParentStart="true" android:layout_marginStart="22dp"/>
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="23dp"
+        android:layout_marginTop="23dp"
+        android:background="@drawable/botaovoltar" />
 
     <EditText
         android:id="@+id/nomeDoRemedio"
         android:layout_width="335dp"
-        android:layout_centerHorizontal="true"
         android:layout_height="55dp"
         android:layout_below="@+id/headercadastroremedinho"
-        android:layout_marginTop="71dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="91dp"
         android:background="@drawable/edittext"
         android:hint=" Insira o nome do remédio"
         android:inputType="text"
@@ -46,8 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/nomeDoRemedio"
         android:layout_alignParentStart="true"
-        android:layout_marginStart="36dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="66dp"
         android:text="Horário para lembrete:"
         android:textSize="22sp" />
 
@@ -56,7 +58,7 @@
         android:layout_width="match_parent"
         android:layout_height="153dp"
         android:layout_below="@+id/textView2"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="52dp"
         android:amPmTextColor="@color/colorPrimaryDark"
         android:numbersBackgroundColor="@color/colorPrimary"
         android:numbersSelectorColor="@color/colorPrimaryDark"
@@ -65,11 +67,11 @@
 
     <Button
         android:id="@+id/botaoSalvarRemedinho"
-        android:layout_centerHorizontal="true"
         android:layout_width="335dp"
         android:layout_height="50dp"
         android:layout_below="@+id/horarioLembrete"
-        android:layout_marginTop="35dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
         android:background="@drawable/salvar" />
 
     <Button

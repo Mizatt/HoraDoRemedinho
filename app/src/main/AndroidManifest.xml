@@ -26,12 +26,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".RemediosCadastrados" />
+        <activity android:name=".CadastroUsuario" />
         <activity android:name=".CadastroDeRemedios" />
         <activity android:name=".sucessoCadastroRemedinho" />
         <activity android:name=".sucessoCadastroUsuario" />
         <activity android:name=".PopErro" />
         <activity android:name=".Login" />
-        <activity android:name=".CadastroUsuario" />
+
     </application>
 
 </manifest>
