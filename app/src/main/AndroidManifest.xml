@@ -15,9 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".ExclusaoDeRegistro"></activity>
+        <activity android:name=".ExclusaoDeRegistro" />
         <activity android:name=".CancelamentoCadastroRemedio" />
-        <activity android:name=".TelaConfiguracao" />
+        <activity android:name=".TelaDeConfigurcao" />
         <activity android:name=".TelaPrincipal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -32,7 +32,6 @@
         <activity android:name=".sucessoCadastroUsuario" />
         <activity android:name=".PopErro" />
         <activity android:name=".Login" />
-
     </application>
 
 </manifest>

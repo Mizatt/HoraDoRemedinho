@@ -17,18 +17,9 @@ public class TelaDeConfigurcao extends AppCompatActivity {
         voltarTela.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent callBack = new Intent(TelaDeConfigurcao.this, RemedinhosCadastrados.class);
+                Intent callBack = new Intent(TelaDeConfigurcao.this, RemediosCadastrados.class);
                 startActivity(callBack);
             }
         });
-
-        Button sairApp = (Button) findViewById(R.id.botaoSair);
-        sairApp.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                System.exit(0);
-            }
-        });
-
     }
 }

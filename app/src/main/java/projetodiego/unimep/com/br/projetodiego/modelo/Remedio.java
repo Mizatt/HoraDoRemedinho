@@ -6,6 +6,16 @@ public class Remedio implements Serializable {
     private int id;
     private String nomeDoRemedio;
 
+    public boolean isMarcado() {
+        return marcado;
+    }
+
+    public void setMarcado(boolean marcado) {
+        this.marcado = marcado;
+    }
+
+    private boolean marcado;
+
     public int getId() {
         return id;
     }

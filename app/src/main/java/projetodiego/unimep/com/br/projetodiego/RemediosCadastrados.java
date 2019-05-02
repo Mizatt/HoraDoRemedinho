@@ -1,6 +1,8 @@
 package projetodiego.unimep.com.br.projetodiego;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.ContextMenu;
@@ -9,6 +11,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.ListView;
 
@@ -28,13 +32,77 @@ public class RemediosCadastrados extends AppCompatActivity {
 
         lista_remedios = findViewById(R.id.listaDeRemediosCadastrados);
 
-        lista_remedios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Remedio Remedios = (Remedio) lista_remedios.getItemAtPosition(position);
+        final AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(lista_remedios.getContext());
+        alertDialog1.setMessage("Deseja excluir ou editar o remédio selecionado?");
+        alertDialog1.setCancelable(false);
+
+        alertDialog1.setPositiveButton("Excluir",  new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Remedio Remedio = (projetodiego.unimep.com.br.projetodiego.modelo.Remedio) lista_remedios.getItemAtPosition(lista_remedios.getCheckedItemPosition());
+                RemedinhoDao DAO = new RemedinhoDao(RemediosCadastrados.this);
+                DAO.deletarRemedios(Remedio);
+                DAO.close();
+                Intent confirmarExclusao = new Intent(RemediosCadastrados.this,ExclusaoDeRegistro.class);
+                startActivity(confirmarExclusao);
+                onResume();
+            }
+        });
+        alertDialog1.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Remedio Remedio = (projetodiego.unimep.com.br.projetodiego.modelo.Remedio) lista_remedios.getItemAtPosition(lista_remedios.getCheckedItemPosition());
                 Intent redirecionaFormulario = new Intent(RemediosCadastrados.this, CadastroDeRemedios.class);
-                redirecionaFormulario.putExtra("remedio_selecionado", Remedios);
+                redirecionaFormulario.putExtra("remedio_selecionado", Remedio);
                 startActivity(redirecionaFormulario);
+            }
+        });
+
+        final AlertDialog alertaExclusao = alertDialog1.create();
+        lista_remedios.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                alertaExclusao.show();
+                return false;
+            }
+        });
+
+        Button botaoEditar = (Button) findViewById(R.id.botaoEditar);
+        botaoEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        Button botaoExcluir = (Button) findViewById(R.id.botaoExcluir);
+        botaoExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+            }
+        });
+
+        final AlertDialog.Builder alertDialogSair = new android.support.v7.app.AlertDialog.Builder(this);
+        alertDialogSair.setMessage("Deseja sair do app?");
+        alertDialogSair.setCancelable(false);
+
+        alertDialogSair.setPositiveButton("Sim",  new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                finishAffinity();
+                System.exit(0);
+            }
+        });
+        alertDialogSair.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                onResume();
+            }
+        });
+
+        final AlertDialog Sair = alertDialogSair.create();
+        Button botaoSair = (Button) findViewById(R.id.botaoSair);
+        botaoSair.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Sair.show();
             }
         });
 
@@ -52,11 +120,11 @@ public class RemediosCadastrados extends AppCompatActivity {
         acessarConfiguracoes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent callTelaConfiguracoes = new Intent(RemediosCadastrados.this, TelaConfiguracao.class);
+                Intent callTelaConfiguracoes = new Intent(RemediosCadastrados.this, TelaDeConfigurcao.class);
                 startActivity(callTelaConfiguracoes);
             }
         });
-    }
+}
 
     private void consultarRemediosCadastrados() {
         RemedinhoDao DAO = new RemedinhoDao(this);
@@ -75,23 +143,5 @@ public class RemediosCadastrados extends AppCompatActivity {
         super.onResume();
         consultarRemediosCadastrados();
     }
-
-    @Override
-    public void onCreateContextMenu(ContextMenu menu, View v, final ContextMenu.ContextMenuInfo menuInfo) {
-        MenuItem Deletar = menu.add("Deletar o cadastro?");
-        Deletar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                AdapterView.AdapterContextMenuInfo informacao_do_menu = (AdapterView.AdapterContextMenuInfo) menuInfo;
-                Remedio Remedio = (projetodiego.unimep.com.br.projetodiego.modelo.Remedio) lista_remedios.getItemAtPosition(informacao_do_menu.position);
-                RemedinhoDao DAO = new RemedinhoDao(RemediosCadastrados.this);
-                DAO.deletarRemedios(Remedio);
-                DAO.close();
-                Intent confirmarExclusao = new Intent(RemediosCadastrados.this,ExclusaoDeRegistro.class);
-                startActivity(confirmarExclusao);
-                onResume();
-                return false;
-            }
-        });
-    }
 }
+

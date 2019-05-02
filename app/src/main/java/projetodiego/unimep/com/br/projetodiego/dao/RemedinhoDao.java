@@ -64,7 +64,6 @@ public class RemedinhoDao extends SQLiteOpenHelper {
         ContentValues Valores = new ContentValues();
         Valores.put("nomeremedio", Remedio.getNomeDoRemedio());
         String[] alteracaoParametro = {Integer.toString(Remedio.getId())};
-        db.update("nomeremedio", Valores, "id = ?", alteracaoParametro);
+        db.update("tabelaRemedios", Valores, "id = ?", alteracaoParametro);
     }
-
 }
