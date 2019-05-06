@@ -5,23 +5,23 @@ import android.widget.EditText;
 import projetodiego.unimep.com.br.projetodiego.modelo.Usuario;
 
 public class ControleUsuarios {
-    private final EditText NomeUsuario;
-    private final EditText EmailUsuario;
-    private final EditText SenhaUsuario;
+    private final EditText nomeUsuario;
+    private final EditText emailUsuario;
+    private final EditText senhaUsuario;
 
     private Usuario var_usuario;
 
     public ControleUsuarios(CadastroUsuario activity) {
-        NomeUsuario = (EditText) activity.findViewById(R.id.NomeUsuario);
-        EmailUsuario = (EditText) activity.findViewById(R.id.EmailUsuario);
-        SenhaUsuario = (EditText) activity.findViewById(R.id.confirmaSenha);
+        nomeUsuario = (EditText) activity.findViewById(R.id.NomeUsuario);
+        emailUsuario = (EditText) activity.findViewById(R.id.EmailUsuario);
+        senhaUsuario = (EditText) activity.findViewById(R.id.confirmaSenha);
         var_usuario = new Usuario();
     }
 
     public Usuario getControleUsuarios() {
-        var_usuario.setNomeUsuario(NomeUsuario.getText().toString());
-        var_usuario.setEmailUsuario(EmailUsuario.getText().toString());
-        var_usuario.setSenhaUsuario(SenhaUsuario.getText().toString());
+        var_usuario.setNomeUsuario(nomeUsuario.getText().toString());
+        var_usuario.setEmailUsuario(emailUsuario.getText().toString());
+        var_usuario.setSenhaUsuario(senhaUsuario.getText().toString());
         return var_usuario;
     }
 

@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import projetodiego.unimep.com.br.projetodiego.modelo.Remedio;
+import projetodiego.unimep.com.br.projetodiego.modelo.Usuario;
 
 
 public class RemedinhoDao extends SQLiteOpenHelper {
@@ -21,13 +22,17 @@ public class RemedinhoDao extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String QuerySQL = "CREATE TABLE tabelaRemedios(id INTEGER PRIMARY KEY NOT NULL, nomeremedio TEXT NOT NULL); ";
+        String QuerySQL1 = "CREATE TABLE tabelaUsuarios(id INTEGER PRIMARY KEY NOT NULL, nomeusuario TEXT NOT NULL, emailusuario TEXT, senhausuario TEXT NOT NULL); ";
         db.execSQL(QuerySQL);
+        db.execSQL(QuerySQL1);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         String QuerySQL = "DROP TABLE IF EXISTS tabelaRemedios";
+        String QuerySQL1 = "DROP TABLE IF EXISTS tabelaUsuarios";
         db.execSQL(QuerySQL);
+        db.execSQL(QuerySQL1);
         onCreate(db);
     }
 
@@ -36,6 +41,15 @@ public class RemedinhoDao extends SQLiteOpenHelper {
         ContentValues Valores = new ContentValues();
         Valores.put("nomeremedio", Remedio.getNomeDoRemedio());
         appDatabase.insert("tabelaRemedios", null, Valores);
+    }
+
+    public void inserirNovoUsuario(Usuario Usuario) {
+        SQLiteDatabase appDatabase = getWritableDatabase();
+        ContentValues Valores = new ContentValues();
+        Valores.put("nomeusuario", Usuario.getNomeUsuario());
+        Valores.put("emailremedio", Usuario.getEmailUsuario());
+        Valores.put("senharemedio", Usuario.getSenhaUsuario());
+        appDatabase.insert("tabelaUsuarios", null, Valores);
     }
 
     public List<Remedio> listaRemedios() {

@@ -4,4 +4,7 @@
     <color name="colorPrimaryDark">#A72BF2</color>
     <color name="colorAccent">#FFFFFF</color>
     <color name="colorExtra">#8b2387</color>
+    <drawable name="highlightcolor">#EC9D10</drawable>
+    <drawable name="selectedcolor">#EC9D10</drawable>
+    <drawable name="notselected">@android:color/transparent</drawable>
 </resources>

@@ -72,7 +72,6 @@
         android:layout_alignTop="@+id/headerremedinhos"
         android:layout_marginTop="60dp"
         android:visibility="visible"
-        android:background="@drawable/list_item_selector"
         android:choiceMode="singleChoice"/>
 
 

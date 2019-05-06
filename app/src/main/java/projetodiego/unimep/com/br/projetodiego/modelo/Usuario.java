@@ -40,3 +40,4 @@ public class Usuario implements Serializable {
         this.senhaUsuario = senhaUsuario;
     }
 }
+

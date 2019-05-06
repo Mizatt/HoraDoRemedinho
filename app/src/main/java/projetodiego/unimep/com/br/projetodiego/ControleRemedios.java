@@ -3,11 +3,13 @@ package projetodiego.unimep.com.br.projetodiego;
 import android.widget.EditText;
 
 import projetodiego.unimep.com.br.projetodiego.modelo.Remedio;
+import projetodiego.unimep.com.br.projetodiego.modelo.Usuario;
 
 public class ControleRemedios {
     private EditText nomeDoRemedio;
 
     private Remedio varRemedio;
+
 
     public ControleRemedios(CadastroDeRemedios activity) {
         nomeDoRemedio = (EditText) activity.findViewById(R.id.nomeDoRemedio);
@@ -23,5 +25,4 @@ public class ControleRemedios {
         nomeDoRemedio.setText(D.getNomeDoRemedio());
         this.varRemedio = D;
     }
-
 }

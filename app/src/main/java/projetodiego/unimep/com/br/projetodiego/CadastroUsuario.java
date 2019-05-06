@@ -1,18 +1,24 @@
 package projetodiego.unimep.com.br.projetodiego;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import projetodiego.unimep.com.br.projetodiego.dao.RemedinhoDao;
+import projetodiego.unimep.com.br.projetodiego.modelo.Usuario;
+
 public class CadastroUsuario extends AppCompatActivity {
+
+    private ControleUsuarios controle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cadastro_usuario);
+        controle = new ControleUsuarios(this);
 
         Button voltaActivity = (Button) findViewById(R.id.botaoVoltar);
         voltaActivity.setOnClickListener(new View.OnClickListener() {
@@ -24,35 +30,41 @@ public class CadastroUsuario extends AppCompatActivity {
             }
         });
 
-        final EditText NomeUsuario = findViewById(R.id.NomeUsuario);
-        final EditText EmailUsuario = findViewById(R.id.EmailUsuario);
-        final EditText SenhaUsuario = findViewById(R.id.PrimeiraSenha);
-        final EditText ConfirmaSenha = findViewById(R.id.confirmaSenha);
+
         Button salvarCadastro = (Button) findViewById(R.id.botaoSalvarCadastro);
         salvarCadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (NomeUsuario.length() == 0) {
-                    NomeUsuario.setError("Você precisa inserir seu nome para continuar.");
-                    NomeUsuario.requestFocus();
+                EditText nomeUsuario = findViewById(R.id.NomeUsuario);
+                EditText emailUsuario = findViewById(R.id.EmailUsuario);
+                EditText senhaUsuario = findViewById(R.id.PrimeiraSenha);
+                EditText confirmaSenha = findViewById(R.id.confirmaSenha);
+                Usuario Usuario = controle.getControleUsuarios();
+                RemedinhoDao dao = new RemedinhoDao(CadastroUsuario.this);
+                if (nomeUsuario.length() == 0) {
+                    nomeUsuario.setError("Você precisa inserir seu nome para continuar.");
+                    nomeUsuario.requestFocus();
                 }
-                if (EmailUsuario.length() == 0) {
-                    EmailUsuario.setError("Você precisa inserir seu email para continuar.");
-                    EmailUsuario.requestFocus();
+                if (emailUsuario.length() == 0) {
+                    emailUsuario.setError("Você precisa inserir seu email para continuar.");
+                    emailUsuario.requestFocus();
                 }
-                if (SenhaUsuario.length() == 0) {
-                    SenhaUsuario.setError("Você precisa inserir uma senha para continuar.");
-                    SenhaUsuario.requestFocus();
+                if (senhaUsuario.length() == 0) {
+                    senhaUsuario.setError("Você precisa inserir uma senha para continuar.");
+                    senhaUsuario.requestFocus();
                 }
-                if (ConfirmaSenha.length() == 0) {
-                    ConfirmaSenha.setError("Você precisa confirmar sua senha para continuar.");
-                    ConfirmaSenha.requestFocus();
-                    if (ConfirmaSenha != SenhaUsuario) {
-                        ConfirmaSenha.setError("As senhas não batem.");
-                        ConfirmaSenha.requestFocus();
+                if (confirmaSenha.length() == 0) {
+                    confirmaSenha.setError("Você precisa confirmar sua senha para continuar.");
+                    confirmaSenha.requestFocus();
+                    if (confirmaSenha != senhaUsuario) {
+                        confirmaSenha.setError("As senhas não batem.");
+                        confirmaSenha.requestFocus();
                     }
                 }
-                if (NomeUsuario.length() != 0 && EmailUsuario.length() != 0 && SenhaUsuario.length() != 0 && ConfirmaSenha.length() != 0) {
+                if (nomeUsuario.length() != 0 && emailUsuario.length() != 0 && senhaUsuario.length() != 0 && confirmaSenha.length() != 0) {
+                    dao.inserirNovoUsuario(Usuario);
+                    dao.close();
+                    finish();
                     Intent callSalvarUsuario = new Intent(CadastroUsuario.this, sucessoCadastroUsuario.class);
                     startActivity(callSalvarUsuario);
                     finish();

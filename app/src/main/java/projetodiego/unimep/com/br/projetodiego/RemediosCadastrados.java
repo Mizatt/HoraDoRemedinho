@@ -15,6 +15,7 @@ import android.widget.CheckBox;
 import android.widget.CheckedTextView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -24,62 +25,17 @@ import projetodiego.unimep.com.br.projetodiego.dao.RemedinhoDao;
 
 public class RemediosCadastrados extends AppCompatActivity {
     private ListView lista_remedios;
+    private int backButtonCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_remedinhos_cadastrados);
-
-        lista_remedios = findViewById(R.id.listaDeRemediosCadastrados);
-
-        final AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(lista_remedios.getContext());
-        alertDialog1.setMessage("Deseja excluir ou editar o remédio selecionado?");
-        alertDialog1.setCancelable(false);
-
-        alertDialog1.setPositiveButton("Excluir",  new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                Remedio Remedio = (projetodiego.unimep.com.br.projetodiego.modelo.Remedio) lista_remedios.getItemAtPosition(lista_remedios.getCheckedItemPosition());
-                RemedinhoDao DAO = new RemedinhoDao(RemediosCadastrados.this);
-                DAO.deletarRemedios(Remedio);
-                DAO.close();
-                Intent confirmarExclusao = new Intent(RemediosCadastrados.this,ExclusaoDeRegistro.class);
-                startActivity(confirmarExclusao);
-                onResume();
-            }
-        });
-        alertDialog1.setNegativeButton("Editar", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                Remedio Remedio = (projetodiego.unimep.com.br.projetodiego.modelo.Remedio) lista_remedios.getItemAtPosition(lista_remedios.getCheckedItemPosition());
-                Intent redirecionaFormulario = new Intent(RemediosCadastrados.this, CadastroDeRemedios.class);
-                redirecionaFormulario.putExtra("remedio_selecionado", Remedio);
-                startActivity(redirecionaFormulario);
-            }
-        });
-
-        final AlertDialog alertaExclusao = alertDialog1.create();
-        lista_remedios.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
-                alertaExclusao.show();
-                return false;
-            }
-        });
-
-        Button botaoEditar = (Button) findViewById(R.id.botaoEditar);
-        botaoEditar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
-
-        Button botaoExcluir = (Button) findViewById(R.id.botaoExcluir);
-        botaoExcluir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+        final Button botaoEditar = (Button) findViewById(R.id.botaoEditar);
+        botaoEditar.setEnabled(false);
+        final Button botaoExcluir = (Button) findViewById(R.id.botaoExcluir);
+        botaoExcluir.setEnabled(false);
+        final Button adicionarNovoRemedinho = (Button) findViewById(R.id.botãoCadastrarNovoRemedinho);
 
         final AlertDialog.Builder alertDialogSair = new android.support.v7.app.AlertDialog.Builder(this);
         alertDialogSair.setMessage("Deseja sair do app?");
@@ -98,6 +54,79 @@ public class RemediosCadastrados extends AppCompatActivity {
         });
 
         final AlertDialog Sair = alertDialogSair.create();
+
+        lista_remedios = findViewById(R.id.listaDeRemediosCadastrados);
+        lista_remedios.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                parent.getItemAtPosition(position);
+                view.setBackground(getDrawable(R.drawable.selectedcolor));
+                    lista_remedios.setSelected(true);
+                    botaoExcluir.setEnabled(true);
+                    botaoEditar.setEnabled(true);
+                    adicionarNovoRemedinho.setEnabled(false);
+                return false;
+            }
+        });
+
+        lista_remedios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                parent.getItemAtPosition(position);
+                view.setBackground(getDrawable(R.drawable.notselected));
+                lista_remedios.setSelected(false);
+                botaoExcluir.setEnabled(false);
+                botaoEditar.setEnabled(false);
+                adicionarNovoRemedinho.setEnabled(true);
+            }
+        });
+
+        final AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(lista_remedios.getContext());
+        alertDialog1.setMessage("Deseja excluir remédio selecionado?");
+        alertDialog1.setCancelable(false);
+
+        alertDialog1.setPositiveButton("Sim",  new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                Remedio Remedio = (projetodiego.unimep.com.br.projetodiego.modelo.Remedio) lista_remedios.getItemAtPosition(lista_remedios.getCheckedItemPosition());
+                RemedinhoDao DAO = new RemedinhoDao(RemediosCadastrados.this);
+                DAO.deletarRemedios(Remedio);
+                DAO.close();
+                Intent confirmarExclusao = new Intent(RemediosCadastrados.this,ExclusaoDeRegistro.class);
+                startActivity(confirmarExclusao);
+                onResume();
+            }
+        });
+
+        alertDialog1.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                lista_remedios.getItemAtPosition(id);
+                lista_remedios.setBackground(getDrawable(R.drawable.notselected));
+                lista_remedios.setSelected(false);
+                botaoExcluir.setEnabled(false);
+                botaoEditar.setEnabled(false);
+                adicionarNovoRemedinho.setEnabled(true);
+                onResume();
+            }
+        });
+
+        final AlertDialog alertaExclusao = alertDialog1.create();
+        botaoExcluir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                alertaExclusao.show();
+            }
+        });
+
+        botaoEditar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Remedio Remedio = (projetodiego.unimep.com.br.projetodiego.modelo.Remedio) lista_remedios.getItemAtPosition(lista_remedios.getCheckedItemPosition());
+                Intent redirecionaFormulario = new Intent(RemediosCadastrados.this, CadastroDeRemedios.class);
+                redirecionaFormulario.putExtra("remedio_selecionado", Remedio);
+                startActivity(redirecionaFormulario);
+            }
+        });
+
         Button botaoSair = (Button) findViewById(R.id.botaoSair);
         botaoSair.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,7 +135,6 @@ public class RemediosCadastrados extends AppCompatActivity {
             }
         });
 
-        Button adicionarNovoRemedinho = (Button) findViewById(R.id.botãoCadastrarNovoRemedinho);
         adicionarNovoRemedinho.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -126,6 +154,18 @@ public class RemediosCadastrados extends AppCompatActivity {
         });
 }
 
+    @Override
+    public void onBackPressed() {
+        if (backButtonCount >= 1) {
+           finishAffinity();
+            System.exit(0);
+        } else {
+            Toast.makeText(this, "Pressione novamente o botão para fechar o app.", Toast.LENGTH_SHORT).show();
+            backButtonCount++;
+        }
+    }
+
+
     private void consultarRemediosCadastrados() {
         RemedinhoDao DAO = new RemedinhoDao(this);
         List<Remedio> lista_de_remedios = DAO.listaRemedios();
@@ -144,4 +184,5 @@ public class RemediosCadastrados extends AppCompatActivity {
         consultarRemediosCadastrados();
     }
 }
+
 
