@@ -39,7 +39,7 @@ public class RemediosCadastrados extends AppCompatActivity {
 
         final AlertDialog.Builder alertDialogSair = new android.support.v7.app.AlertDialog.Builder(this);
         alertDialogSair.setMessage("Deseja sair do app?");
-        alertDialogSair.setCancelable(false);
+        alertDialogSair.setCancelable(true);
 
         alertDialogSair.setPositiveButton("Sim",  new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int id) {
@@ -61,25 +61,14 @@ public class RemediosCadastrados extends AppCompatActivity {
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
                 parent.getItemAtPosition(position);
                 view.setBackground(getDrawable(R.drawable.selectedcolor));
-                    lista_remedios.setSelected(true);
-                    botaoExcluir.setEnabled(true);
-                    botaoEditar.setEnabled(true);
-                    adicionarNovoRemedinho.setEnabled(false);
+                lista_remedios.setSelected(true);
+                botaoExcluir.setEnabled(true);
+                botaoEditar.setEnabled(true);
+                adicionarNovoRemedinho.setEnabled(false);
                 return false;
             }
         });
 
-        lista_remedios.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                parent.getItemAtPosition(position);
-                view.setBackground(getDrawable(R.drawable.notselected));
-                lista_remedios.setSelected(false);
-                botaoExcluir.setEnabled(false);
-                botaoEditar.setEnabled(false);
-                adicionarNovoRemedinho.setEnabled(true);
-            }
-        });
 
         final AlertDialog.Builder alertDialog1 = new AlertDialog.Builder(lista_remedios.getContext());
         alertDialog1.setMessage("Deseja excluir remédio selecionado?");
@@ -98,14 +87,12 @@ public class RemediosCadastrados extends AppCompatActivity {
         });
 
         alertDialog1.setNegativeButton("Não", new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int id) {
-                lista_remedios.getItemAtPosition(id);
-                lista_remedios.setBackground(getDrawable(R.drawable.notselected));
-                lista_remedios.setSelected(false);
-                botaoExcluir.setEnabled(false);
-                botaoEditar.setEnabled(false);
-                adicionarNovoRemedinho.setEnabled(true);
-                onResume();
+            //Patch-a-roo
+                public void onClick(DialogInterface dialog, int id) {
+                     onResume();
+                      botaoExcluir.setEnabled(false);
+                      botaoEditar.setEnabled(false);
+                      adicionarNovoRemedinho.setEnabled(true);
             }
         });
 
@@ -120,12 +107,14 @@ public class RemediosCadastrados extends AppCompatActivity {
         botaoEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Remedio Remedio = (projetodiego.unimep.com.br.projetodiego.modelo.Remedio) lista_remedios.getItemAtPosition(lista_remedios.getCheckedItemPosition());
+                //Não me dá a posição do remédio selecionado.
+                Remedio Remedios = (Remedio) lista_remedios.getItemAtPosition(lista_remedios.getSelectedItemPosition());
                 Intent redirecionaFormulario = new Intent(RemediosCadastrados.this, CadastroDeRemedios.class);
-                redirecionaFormulario.putExtra("remedio_selecionado", Remedio);
+                redirecionaFormulario.putExtra("remedio_selecionado", Remedios);
                 startActivity(redirecionaFormulario);
             }
         });
+
 
         Button botaoSair = (Button) findViewById(R.id.botaoSair);
         botaoSair.setOnClickListener(new View.OnClickListener() {
@@ -156,7 +145,8 @@ public class RemediosCadastrados extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (backButtonCount >= 1) {
+        onResume();
+        if (backButtonCount >= 2) {
            finishAffinity();
             System.exit(0);
         } else {
@@ -182,6 +172,7 @@ public class RemediosCadastrados extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         consultarRemediosCadastrados();
+        lista_remedios.setSelected(false);
     }
 }
 
